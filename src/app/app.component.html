@@ -1,0 +1,4 @@
+<app-auth *ngIf = "!(login$ | async)"></app-auth>
+
+
+<app-main *ngIf = "login$ | async"></app-main>

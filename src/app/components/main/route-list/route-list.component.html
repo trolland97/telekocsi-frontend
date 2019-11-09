@@ -1,0 +1,50 @@
+<div id="route-list-box">
+
+<div class="routes-title">Meghirdetett utak</div>
+
+<ul fxLayoutAlign="center center">
+    <li>Honnan: <input type="text" name="from" #from></li>
+    <li>Hova: <input type="text" name="where" #where></li>
+    <li>Időpont: <input type="datetime-local" name="when" #when></li>
+    <li>Férőhely: <input type="number" name="quantity" min="1" max="10" #quantity></li>
+    <li><button (click)="filter(from.value, where.value, when.value, quantity.value)">Keresés</button></li>
+  </ul>
+
+  <table style="width:100%">
+      <tr>
+        <th>Sofőr:</th>
+        <th>Honnan:</th>
+        <th>Hova:</th> 
+        <th>Időpont:</th>
+        <th>Érkezés:</th>
+        <th>Férőhely:</th>
+        <th>Ár:</th>
+        <th>Auto:</th>
+        <th>Auto tipus:</th>
+        <th>Rendszám:</th>
+        <th>Szin:</th>
+        <th>Jelentkezés:</th>
+      </tr>
+      <tr *ngFor="let route of (routes$ | async)">
+        <td>{{route.sofor}}</td>
+        <td>{{route.from}}</td>
+        <td>{{route.to}}</td>
+        <td>{{route.when}}</td>
+        <td>{{route.arrives}}</td>
+        <td>{{route.capacity}}</td>
+        <td>{{route.price + " HUF"}}</td>
+        <td>{{route.car}}</td>
+        <td>{{route.car_type}}</td>
+        <td>{{route.plate}}</td>
+        <td>{{route.color}}</td>
+        <td><div fxLayoutAlign="center center"><input type="submit" value="Jelentkezem"></div></td>
+        
+      </tr>
+    
+    </table>
+
+
+<footer id="main-footer">
+  <p>Szőke Xavér & Péter Roland &copy; 2019, Telekocsi</p>
+</footer>
+</div>
